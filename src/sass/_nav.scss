@@ -1,0 +1,50 @@
+@use "./base" as *;
+
+header {
+	padding: 1.6rem 2.4rem;
+	padding-right: 1.6rem;
+	background-color: $white;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&__link--preview {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 52px;
+		height: 42px;
+		border: 1px solid $primary;
+		border-radius: 8px;
+	}
+
+	&__logo {
+		padding-right: 2rem;
+	}
+}
+
+.nav__item {
+	display: flex;
+
+	&--link {
+		padding: 1.1rem 2.7rem;
+
+		svg {
+			height: 2rem;
+			width: 2rem;
+		}
+	}
+}
+
+.active {
+	background-color: $light-purple;
+	border-radius: 8px;
+	color: $primary;
+
+	path {
+		fill: $primary;
+	}
+}
