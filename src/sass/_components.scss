@@ -1,5 +1,9 @@
 @use "./colors" as *;
 
+.hidden {
+	display: none;
+}
+
 .heading-M {
 	margin-bottom: 0.8rem;
 	color: $dark-grey;
@@ -16,6 +20,11 @@
 	.heading-M {
 		text-align: start;
 	}
+}
+
+.text-s {
+	font-size: 1.2rem;
+	line-height: 150%;
 }
 
 .btn {

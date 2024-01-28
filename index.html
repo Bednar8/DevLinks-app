@@ -24,14 +24,15 @@
         <img src="./assets/images/logo-devlinks-small.svg" alt="">
       </a>
       <div class="nav__item">
-        <a href="#" class="nav__item--link nav__link--links">
+        <a href="#" class="nav__item--link nav__link--links active">
           <svg xmlns="http://www.w3.org/2000/svg" fill="red" width="21"
             height="20" viewBox="0 0 21 20">
             <path fill="#737373"
               d="M11.154 14.65a.936.936 0 0 1 0 1.329l-.464.464a4.689 4.689 0 1 1-6.631-6.631l1.884-1.884a4.687 4.687 0 0 1 6.432-.194.941.941 0 0 1-1.25 1.407 2.813 2.813 0 0 0-3.857.114l-1.883 1.882a2.813 2.813 0 1 0 3.978 3.978l.464-.464a.936.936 0 0 1 1.327 0ZM16.94 3.558a4.695 4.695 0 0 0-6.63 0l-.465.464a.94.94 0 1 0 1.328 1.328l.464-.464a2.813 2.813 0 0 1 3.978 3.978l-1.883 1.885a2.813 2.813 0 0 1-3.858.111.942.942 0 0 0-1.25 1.407 4.688 4.688 0 0 0 6.43-.19l1.884-1.884a4.695 4.695 0 0 0 .002-6.633v-.002Z" />
           </svg>
         </a>
-        <a href="#" class="nav__item--link nav__link--profile-details  active">
+        <a href="./profile.html"
+          class="nav__item--link nav__link--profile-details">
           <svg id="icon-profile-details-header"
             xmlns="http://www.w3.org/2000/svg" width="21" height="20"
             fill="none" viewBox="0 0 21 20">
@@ -58,7 +59,7 @@
         </div>
         <div class="add-link__box">
           <button class="btn btn-secondary">+ Add new link</button>
-          <div class="add-link__box--content">
+          <!-- <div class="add-link__box--content">
             <img src="./assets/images/illustration-empty.svg" alt="">
             <h2 class="heading-M">Let's get you started</h2>
             <p>Use the “Add new link” button to get started. Once you have more
@@ -68,13 +69,14 @@
               profiles
               with
               everyone!</p>
-          </div>
+          </div> -->
 
           <!-- ADD_LINK PREVIEW -->
-          <!-- <div class="add-link__box--preview">
+
+          <div class="add-link__box--preview">
 
             <div class="drag-drop__box" data-link="1">
-              <p>
+              <p class="drag-drop__btn">
                 <img class="drag-drop__box--icon"
                   src="./assets/images/icon-drag-and-drop.svg" alt="">
                 <span class="drag-drop__box--text">Link #1</span>
@@ -82,30 +84,114 @@
               <button class="btn-remove">Remove</button>
             </div>
             <div class="dropdown">
-              <button>
+              <p class="dropdown__text text-s">Platform</p>
+              <button class="dropdown__btn">
                 <p>
                   <img src="./assets/images/icon-github.svg" alt="">
                   GitHub
                 </p>
                 <img src="./assets/images/icon-chevron-down.svg" alt="">
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a>
+              <ul class="dropdown__menu hidden">
+                <li class="dropdown__menu--item"
+                  data-platform="frontent-mentor">
+                  <p>
+                    <img src="./assets/images/icon-frontend-mentor.svg" alt="">
+                    Frontend Mentor
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="twitter">
+                  <p>
+                    <img src="./assets/images/icon-twitter.svg" alt="">
+                    Twitter
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="linkedIn">
+                  <p>
+                    <img src="./assets/images/icon-linkedin.svg" alt="">
+                    LinkedIn
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="youtube">
+                  <p>
+                    <img src="./assets/images/icon-youtube.svg" alt="">
+                    YouTube
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="fb">
+                  <p>
+                    <img src="./assets/images/icon-facebook.svg" alt="">
+                    Facebook
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="twitch">
+                  <p>
+                    <img src="./assets/images/icon-twitch.svg" alt="">
+                    Twitch
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="dev-to">
+                  <p>
+                    <img src="./assets/images/icon-devto.svg" alt="">
+                    Dev.to
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="codewars">
+                  <p>
+                    <img src="./assets/images/icon-codewars.svg" alt="">
+                    Codewars
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="codepen">
+                  <p>
+                    <img src="./assets/images/icon-codepen.svg" alt="">
+                    Codepen
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="freeCodeCamp">
+                  <p>
+                    <img src="./assets/images/icon-freecodecamp.svg" alt="">
+                    freeCodeCamp
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="gitlab">
+                  <p>
+                    <img src="./assets/images/icon-gitlab.svg" alt="">
+                    GilLab
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="hashnode">
+                  <p>
+                    <img src="./assets/images/icon-hashnode.svg" alt="">
+                    Hashnode
+                  </p>
+                </li>
+                <li class="dropdown__menu--item" data-platform="stack overflow">
+                  <p>
+                    <img src="./assets/images/icon-stack-overflow.svg" alt="">
+                    Stack Overflow
+                  </p>
                 </li>
               </ul>
             </div>
 
-          </div> -->
+            <div class="dropdown">
+              <p class="dropdown__text text-s">Link</p>
+              <input id="link-input" type="text" class="link-input"
+                placeholder="e.g. https://www.github.com/Bednar8">
+            </div>
+
+          </div>
 
         </div>
       </div>
-      <div class="line-decoration"></div>
-      <div class="btn__box"><button class="btn btn-primary btn-save"
-          disabled>Save</button></div>
+      <div class="btn__box"><button
+          class="btn btn-primary btn-save">Save</button>
+      </div>
     </section>
-
+    <footer>
+      <p>Coded by Paweł Bednarski</p>
+    </footer>
   </main>
 
 </body>
