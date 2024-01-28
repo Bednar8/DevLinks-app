@@ -1,0 +1,51 @@
+@use "./colors" as *;
+
+.heading-M {
+	margin-bottom: 0.8rem;
+	color: $dark-grey;
+	font-size: 2.4rem;
+	font-weight: bold;
+	line-height: 150%;
+}
+
+.header__text {
+	&--description {
+		margin-bottom: 4rem;
+		text-align: start;
+	}
+	.heading-M {
+		text-align: start;
+	}
+}
+
+.btn {
+	width: 100%;
+	padding: 1.5rem 0;
+	border: none;
+	border-radius: 8px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background-color: $primary;
+	color: $white;
+
+	&:disabled {
+		background-color: $light-purple;
+	}
+}
+
+.btn-secondary {
+	color: $primary;
+	border: 1px solid $primary;
+	background-color: $white;
+}
+
+.line-decoration {
+	margin-bottom: 1.6rem;
+	width: 100%;
+	height: 1px;
+	background-color: $borders;
+}
