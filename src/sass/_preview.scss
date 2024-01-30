@@ -52,6 +52,7 @@
 		margin-bottom: 2rem;
 		border-radius: 8px;
 		color: $white;
+		cursor: pointer;
 
 		&-platform {
 			display: flex;
@@ -65,7 +66,7 @@
 	}
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 	.bg-decoration__profile {
 		position: absolute;
 		top: 0;

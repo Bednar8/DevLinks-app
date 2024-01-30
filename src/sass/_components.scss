@@ -11,7 +11,7 @@
 	font-weight: bold;
 	line-height: 150%;
 
-	@media (min-width: 769px) {
+	@media (min-width: 768px) {
 		font-size: 3.2rem;
 	}
 }
@@ -60,6 +60,7 @@
 .btn-primary {
 	background-color: $primary;
 	color: $white;
+	text-align: center;
 	border: none;
 
 	&:disabled {
@@ -71,6 +72,7 @@
 	color: $primary;
 	border: 1px solid $primary;
 	background-color: $white;
+	text-align: center;
 }
 
 .label-upload {
@@ -119,8 +121,11 @@
 	&__box {
 		padding: 2.4rem;
 
-		@media (min-width: 769px) {
+		@media (min-width: 768px) {
 			padding: 4rem;
+		}
+		@media (min-width: 1200px) {
+			padding: 0;
 		}
 	}
 }

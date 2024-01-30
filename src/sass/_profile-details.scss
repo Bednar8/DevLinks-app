@@ -28,7 +28,7 @@
 	}
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 	.profile__picture--box {
 		display: flex;
 		align-items: center;
@@ -57,5 +57,12 @@
 		p {
 			display: inline-block;
 		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.section {
+		margin: 0;
+		padding: 4rem;
 	}
 }

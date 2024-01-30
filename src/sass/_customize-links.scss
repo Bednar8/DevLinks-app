@@ -1,9 +1,13 @@
 @use "./colors" as *;
 
+.phone__mokup {
+	display: none;
+}
+
 .btn__box {
 	margin: 0 2.4rem;
 
-	@media (min-width: 769px) {
+	@media (min-width: 768px) {
 		display: flex;
 		justify-content: flex-end;
 		margin: 0 4rem;
@@ -180,7 +184,7 @@
 	border-radius: 3px;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 	.add-link__box {
 		&--content {
 			// margin-top: 8.2rem;
@@ -189,5 +193,28 @@
 				height: 16rem;
 			}
 		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.app {
+		display: flex;
+		gap: 2.4rem;
+		height: 100%;
+		width: 100%;
+	}
+	.phone__mokup {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40%;
+		height: 100%;
+		padding: 4rem;
+		background-color: $white;
+		border-radius: 12px;
+	}
+
+	.section.customize__links {
+		width: 60%;
 	}
 }

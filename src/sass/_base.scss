@@ -26,7 +26,10 @@ body {
 	font-size: 1.6rem;
 	line-height: 150%;
 }
-
+.container-app {
+	max-width: 1440px;
+	margin: 0 auto;
+}
 .container {
 	margin: 0 2.4rem;
 }
