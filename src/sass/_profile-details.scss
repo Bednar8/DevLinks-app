@@ -15,4 +15,47 @@
 	label {
 		margin-top: 1.2rem;
 	}
+
+	@media (min-width: 769px) {
+		flex-direction: row;
+		margin-bottom: 1.2rem;
+		input {
+			width: 55%;
+		}
+		label {
+			width: 45%;
+		}
+	}
+}
+
+@media (min-width: 769px) {
+	.profile__picture--box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		h3 {
+			width: 45%;
+		}
+	}
+
+	.upload__box {
+		display: flex;
+		align-items: center;
+		width: 55%;
+
+		.label-upload {
+			margin-right: 2.4rem;
+			min-width: 193px;
+			min-height: 193px;
+			img {
+				height: max-content;
+				margin-bottom: 0.8rem;
+			}
+		}
+
+		p {
+			display: inline-block;
+		}
+	}
 }

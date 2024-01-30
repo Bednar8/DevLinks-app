@@ -1,20 +1,22 @@
 @use "./colors" as *;
 
-header {
-	position: fixed;
+.nav.nav__desktop {
+	display: none;
+}
+
+.nav {
+	position: sticky;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	top: 0;
 	left: 0;
 	width: 100%;
 	padding: 1.6rem 2.4rem;
+	padding-top: 1.6rem;
 	padding-right: 1.6rem;
 	background-color: $white;
 	z-index: 5;
-}
-
-.nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 
 	&__link--preview {
 		display: flex;
@@ -29,6 +31,23 @@ header {
 	&__logo {
 		padding-right: 2rem;
 	}
+
+	&__preview {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		&--btn {
+			width: 100%;
+			padding: 1.1rem 0;
+			border-radius: 12px;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
 .nav__item {
@@ -39,7 +58,7 @@ header {
 		justify-content: center;
 		align-items: center;
 		padding: 1.1rem 2.7rem;
-
+		transition: color 0.2s;
 		svg {
 			height: 2rem;
 			width: 2rem;
@@ -54,5 +73,42 @@ header {
 
 	path {
 		fill: $primary;
+	}
+}
+
+@media (min-width: 769px) {
+	.nav__mobile {
+		display: none;
+	}
+	.nav.nav__desktop {
+		position: sticky;
+		display: flex;
+		margin: 2.4rem 0;
+		padding: 1.6rem 2.4rem;
+		padding-right: 1.6rem;
+		background-color: $white;
+		border-radius: 12px;
+		z-index: 5;
+	}
+
+	.nav__item {
+		display: flex;
+		align-items: center;
+
+		img,
+		svg {
+			margin-right: 0.8rem;
+		}
+	}
+
+	.nav__logo {
+		color: $dark-grey;
+		font-size: 2.1rem;
+		font-weight: bolder;
+	}
+
+	.nav__link--preview {
+		width: 114px;
+		color: $primary;
 	}
 }

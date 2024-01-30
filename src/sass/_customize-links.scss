@@ -1,20 +1,34 @@
 @use "./colors" as *;
 
 .btn__box {
-	margin: 0 1.6rem;
+	margin: 0 2.4rem;
+
+	@media (min-width: 769px) {
+		display: flex;
+		justify-content: flex-end;
+		margin: 0 4rem;
+		.btn-save {
+			width: 100px;
+		}
+	}
 }
 
-// .customize__links {
-// 	&--box {
-// 	}
-// }
-
 .add-link__box {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
 	.heading-M {
 		margin: 2.4rem 0;
 	}
 
+	&--text {
+		max-width: 488px;
+		margin: 0 auto;
+	}
+
 	&--content {
+		width: 100%;
 		margin-top: 2.4rem;
 		padding: 2rem;
 		background-color: $light-grey;
@@ -26,6 +40,7 @@
 	}
 
 	&--preview {
+		width: 100%;
 		margin-top: 2.4rem;
 		padding: 2rem;
 		background-color: $light-grey;
@@ -163,4 +178,16 @@
 .dropdown__menu::-webkit-scrollbar-thumb {
 	background-color: $borders;
 	border-radius: 3px;
+}
+
+@media (min-width: 769px) {
+	.add-link__box {
+		&--content {
+			// margin-top: 8.2rem;
+
+			img {
+				height: 16rem;
+			}
+		}
+	}
 }
