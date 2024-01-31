@@ -80,7 +80,9 @@
 
       <main class="app">
         <div class="phone__mokup">
-          <img src="./assets/images/illustration-phone-mockup.svg" alt="">
+          <div class="phone__mokup--img">
+            <img src="./assets/images/illustration-phone-mockup.svg" alt="">
+          </div>
         </div>
         <section class="section profile__details">
           <div class="section__box">
@@ -113,16 +115,21 @@
                   <div class="form__item">
                     <label for="name">First name*</label>
                     <input type="text" id="name" placeholder="e.g. John">
+                    <p class="input__error">Can't be empty</p>
                   </div>
                   <div class="form__item">
                     <label for="surname">Last name*</label>
                     <input type="text" id="surname"
                       placeholder="e.g. Appleseed">
+                    <p class="input__error">Can't be empty</p>
+
                   </div>
                   <div class="form__item">
                     <label for="mail">Email</label>
                     <input type="text" id="mail"
                       placeholder="e.g. email@example.com">
+                    <p class="input__error">Can't be empty</p>
+
                   </div>
                 </form>
               </div>
@@ -132,12 +139,17 @@
           <div class="btn__box"><button
               class="btn btn-primary btn-save">Save</button>
           </div>
+
         </section>
       </main>
     </div>
     <footer>
       <p>Coded by Paweł Bednarski</p>
     </footer>
+  </div>
+  <div class="copied__link">
+    <img src="./assets/images/icon-changes-saved.svg" alt="">
+    <p>Your changes have been successfully saved!</p>
   </div>
 </body>
 

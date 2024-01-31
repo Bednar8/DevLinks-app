@@ -1,6 +1,7 @@
 @use "./colors" as *;
 
 .form__item {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	font-size: 1.2rem;
