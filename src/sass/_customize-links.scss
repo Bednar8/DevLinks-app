@@ -5,14 +5,36 @@
 }
 
 .btn__box {
-	margin: 0 2.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.6rem 0;
+	border-top: 1px solid $borders;
+
+	.btn-save {
+		margin: 0 2.4rem;
+		transition: background-color 0.3s, box-shadow 0.3s;
+		font-size: 1.6rem;
+
+		&:hover {
+			background-color: $secondary;
+			box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.1);
+		}
+	}
 
 	@media (min-width: 768px) {
 		display: flex;
 		justify-content: flex-end;
-		margin: 0 4rem;
+		padding: 2.4rem 0;
 		.btn-save {
 			width: 100px;
+			font-size: 1.8rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.btn-save {
+			margin: 0;
 		}
 	}
 }
@@ -78,6 +100,7 @@
 		border: none;
 		background: none;
 		color: $grey;
+		font-size: 1.6rem;
 		cursor: pointer;
 	}
 }
@@ -94,6 +117,17 @@
 	&__btn {
 		font-size: 1.6rem;
 		cursor: pointer;
+
+		&:focus {
+			border-radius: 8px;
+			border: 1px solid var(--Purple, #633cff);
+			background: var(--White, #fff);
+			box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+		}
+
+		@media (min-width: 768px) {
+			font-size: 1.8rem;
+		}
 	}
 
 	&__btn,
@@ -123,7 +157,11 @@
 		}
 	}
 
-	#link-input {
+	.dropdown__menu--item-active {
+		color: $primary;
+	}
+
+	.link-input {
 		padding-left: 2.4rem;
 		background-image: url("/assets/images/icon-link.svg");
 		background-repeat: no-repeat;
@@ -132,6 +170,18 @@
 
 		&::placeholder {
 			color: $grey;
+			font-size: 1.4rem;
+		}
+
+		&:focus {
+			outline: none;
+			border: 1px solid $primary;
+			box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+		}
+
+		&--error {
+			border: 1px solid $red;
+			color: $red;
 		}
 	}
 
@@ -175,20 +225,20 @@
 	}
 }
 
-.dropdown__menu::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
 	width: 0.5rem;
 }
 
-.dropdown__menu::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
 	background-color: $borders;
 	border-radius: 3px;
 }
 
 @media (min-width: 768px) {
 	.add-link__box {
+		max-height: 600px;
+		overflow-y: scroll;
 		&--content {
-			// margin-top: 8.2rem;
-
 			img {
 				height: 16rem;
 			}
@@ -199,22 +249,27 @@
 @media (min-width: 1200px) {
 	.app {
 		display: flex;
+		align-items: stretch;
 		gap: 2.4rem;
 		height: 100%;
 		width: 100%;
 	}
+
 	.phone__mokup {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 40%;
-		height: 100%;
-		padding: 4rem;
+		// flex-grow: 1;
+		padding: 0 11rem;
 		background-color: $white;
 		border-radius: 12px;
 	}
 
-	.section.customize__links {
-		width: 60%;
+	.section {
+		width: 100%;
+	}
+
+	.btn__box {
+		margin-top: 2.4rem;
 	}
 }

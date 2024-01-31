@@ -25,11 +25,25 @@ body {
 	font-family: "Instrument Sans", sans-serif;
 	font-size: 1.6rem;
 	line-height: 150%;
+
+	@media (min-width: 768px) {
+		font-size: 1.8rem;
+	}
 }
+
+.section {
+	min-height: 700px;
+
+	@media (min-width: 768px) {
+		height: 900px;
+	}
+}
+
 .container-app {
 	max-width: 1440px;
 	margin: 0 auto;
 }
+
 .container {
 	margin: 0 2.4rem;
 }

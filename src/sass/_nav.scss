@@ -42,6 +42,10 @@
 			width: 100%;
 			padding: 1.1rem 0;
 			border-radius: 12px;
+
+			@media (min-width: 768px) {
+				font-size: 1.8rem;
+			}
 		}
 	}
 
@@ -99,16 +103,37 @@
 		svg {
 			margin-right: 0.8rem;
 		}
+
+		path {
+			transition: fill 0.2s;
+		}
+
+		&--link {
+			transition: color 0.2s;
+		}
+
+		&--link:hover {
+			color: $primary;
+
+			path {
+				fill: $primary;
+			}
+		}
 	}
 
 	.nav__logo {
 		color: $dark-grey;
-		font-size: 2.1rem;
+		font-size: 3.2rem;
 		font-weight: bolder;
 	}
 
 	.nav__link--preview {
 		width: 114px;
 		color: $primary;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: $light-purple;
+		}
 	}
 }

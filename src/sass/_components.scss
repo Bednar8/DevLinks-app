@@ -20,6 +20,10 @@
 	font-size: 1.6rem;
 	line-height: 150%;
 	font-weight: bold;
+
+	@media (min-width: 768px) {
+		font-size: 1.8rem;
+	}
 }
 
 .header__text {
@@ -41,6 +45,10 @@
 .text-s {
 	font-size: 1.2rem;
 	line-height: 150%;
+
+	@media (min-width: 768px) {
+		font-size: 1.4rem;
+	}
 }
 
 .text-center {
@@ -73,6 +81,12 @@
 	border: 1px solid $primary;
 	background-color: $white;
 	text-align: center;
+	font-size: 1.6rem;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background-color: $light-purple;
+	}
 }
 
 .label-upload {
@@ -127,5 +141,21 @@
 		@media (min-width: 1200px) {
 			padding: 0;
 		}
+	}
+}
+
+.copied__link {
+	display: flex;
+	position: absolute;
+	bottom: 4rem;
+	left: 50%;
+	padding: 1.6rem 2.4rem;
+	transform: translateX(-50%);
+	background-color: $dark-grey;
+	color: $light-grey;
+	border-radius: 8px;
+
+	img {
+		margin-right: 0.8rem;
 	}
 }
