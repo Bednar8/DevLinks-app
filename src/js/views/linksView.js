@@ -1,7 +1,10 @@
 import View from './View';
+import githubIcon from '../../assets/images/icon-github.svg';
+import arrowDownIcon from '../../assets/images/icon-chevron-down.svg';
 
 class LinksView extends View {
   _parentElement = document.querySelector('.app__content--stepLinks');
+
   addLinkPanel() {
     const link = document.querySelector('add-link__box--preview');
     if (!link) this._parentElement.innerHTML = '';
@@ -9,6 +12,18 @@ class LinksView extends View {
       'beforebegin',
       this._generateMarkup()
     );
+  }
+
+  checkURL() {
+    const input = document.querySelector('.link-input');
+    try {
+      new URL(input.value);
+      input.classList.remove('link-input--error');
+      return true;
+    } catch (err) {
+      input.classList.add('link-input--error');
+      return false;
+    }
   }
 
   _generateMarkup() {
@@ -26,10 +41,10 @@ class LinksView extends View {
                   <p class="dropdown__text text-s">Platform</p>
                   <button class="dropdown__btn">
                     <p>
-                      <img src="./assets/images/icon-github.svg" alt="">
+                      <img src="${githubIcon}" alt="">
                       GitHub
                     </p>
-                    <img src="./assets/images/icon-chevron-down.svg" alt="">
+                    <img src="${arrowDownIcon}" alt="">
                   </button>
                   <ul class="dropdown__menu hidden scroll">
                     <li class="dropdown__menu--item dropdown__menu--item-active"
@@ -120,10 +135,9 @@ class LinksView extends View {
                 <div class="dropdown">
                   <p class="dropdown__text text-s">Link</p>
                   <input id="link-input" type="text"
-                    class="link-input link-input--error"
+                    class="link-input"
                     placeholder="e.g. https://www.github.com/Bednar8">
                   <p class="input__error">Can't be empty</p>
-
                 </div>
               </div>
     `;

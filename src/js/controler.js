@@ -1,3 +1,4 @@
+import View, { view } from './views/View';
 import linksView from './views/linksView';
 
 const btnDropdown = document.querySelector('.dropdown__btn');
@@ -12,3 +13,13 @@ const btnAddLink = document.querySelector('.btn-add-link');
 btnAddLink.addEventListener('click', function () {
   linksView.addLinkPanel();
 });
+
+const controlSave = function () {
+  console.log(linksView.checkURL());
+};
+
+const init = function () {
+  view.addHandlerSaveBtn(controlSave);
+};
+
+init();

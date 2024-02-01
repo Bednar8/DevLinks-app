@@ -7,5 +7,6 @@ const state = {
   currentLinks: {
     name: '',
     url: '',
+    correctUrl: false,
   },
 };
