@@ -1,6 +1,14 @@
-const btnDropdown = document.querySelector(".dropdown__btn")
-const dropdownMenu = document.querySelector(".dropdown__menu")
+import linksView from './views/linksView';
 
-btnDropdown.addEventListener("click", function () {
-	dropdownMenu.classList.toggle("hidden")
-})
+const btnDropdown = document.querySelector('.dropdown__btn');
+const dropdownMenu = document.querySelector('.dropdown__menu');
+
+// if (!btnDropdown) return;
+// btnDropdown.addEventListener('click', function () {
+//   dropdownMenu.classList.toggle('hidden');
+// });
+
+const btnAddLink = document.querySelector('.btn-add-link');
+btnAddLink.addEventListener('click', function () {
+  linksView.addLinkPanel();
+});
