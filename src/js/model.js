@@ -5,9 +5,8 @@ export const state = {
     imgUrl: '',
   },
   currentLinks: {
-    name: '',
-    url: '',
     correctUrl: false,
   },
-  linkPanels: [],
+  panels: [],
+  links: [],
 };

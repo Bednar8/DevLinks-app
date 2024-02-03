@@ -2,31 +2,20 @@ import * as model from './model.js';
 import { view } from './views/View';
 import linksView from './views/linksView';
 
-const btnDropdown = document.querySelector('.dropdown__btn');
-const dropdownMenu = document.querySelector('.dropdown__menu');
+const controlAddPanelLink = function () {
+  if (!linksView.checkUrl() && model.state.panels.length > 0) return;
+  // add panel link to panels array and append it in browser
+  model.state.panels.push(linksView.createPanelLink());
+  linksView.appendPanelLink();
 
-// if (!btnDropdown) return;
-// btnDropdown.addEventListener('click', function () {
-//   dropdownMenu.classList.toggle('hidden');
-// }
-
-const controlAddLinksPanel = function () {
-  const linksPanel = linksView.addLinkPanel();
-  model.state.linkPanels = linksPanel;
-};
-
-const controlRemoveLinksPanel = function () {
-  linksView.removeLinkPanel(model.state);
-};
-
-const controlSave = function () {
-  console.log(linksView.checkURL());
+  // add link data (url, platfrom) to links array
+  model.state.links.push(linksView.storeLinkData());
+  // linksView.storeLinkData();
+  console.log(model.state);
 };
 
 const init = function () {
-  view.addHandlerSaveBtn(controlSave);
-  linksView.addHandlerAddPanelLink(controlAddLinksPanel);
-  linksView.addHandlerRemovePanelLink(controlRemoveLinksPanel);
+  linksView.addHandlerAddPanelLink(controlAddPanelLink);
 };
 
 init();
