@@ -3,15 +3,44 @@ import githubIcon from '../../assets/images/icon-github.svg';
 import arrowDownIcon from '../../assets/images/icon-chevron-down.svg';
 
 class LinksView extends View {
-  _parentElement = document.querySelector('.app__content--stepLinks');
+  _parentElement = document.querySelector('.section__box');
+  _linksEl = document.querySelector('.app__content--stepLinks');
+  _linkNumber = 0;
+
+  // btnAddLink.addEventListener('click', function () {
+  //   linksView.addLinkPanel();
+  // });
+
+  addHandlerAddPanelLink(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btnAddLink = document.querySelector('.btn-add-link');
+      if (e.target !== btnAddLink) return;
+      handler();
+    });
+  }
+
+  addHandlerRemovePanelLink(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btnsRemove = document.querySelectorAll('.btn-remove');
+      btnsRemove.forEach(btn => {
+        if (e.target !== btn) return;
+        const currentPanel = e.target.closest('.add-link__box--preview');
+        console.log(currentPanel);
+        handler();
+      });
+    });
+  }
 
   addLinkPanel() {
-    const link = document.querySelector('add-link__box--preview');
-    if (!link) this._parentElement.innerHTML = '';
-    this._parentElement.insertAdjacentHTML(
-      'beforebegin',
-      this._generateMarkup()
-    );
+    this._linksEl.innerHTML = '';
+    this._linksEl.insertAdjacentHTML('beforebegin', this._generateMarkup());
+    const links = document.querySelectorAll('.add-link__box--preview');
+    return Array.from(links);
+  }
+
+  removeLinkPanel(data) {
+    this._data = data;
+    console.log(this._data);
   }
 
   checkURL() {
@@ -28,12 +57,15 @@ class LinksView extends View {
 
   _generateMarkup() {
     return `
-    <div class="add-link__box--preview" draggable="true">
-                <div class="drag-drop__box" data-link="1">
+    <div class="add-link__box--preview" draggable="true" data-link="${this
+      ._linkNumber++}">
+                <div class="drag-drop__box" >
                   <p class="drag-drop__btn">
                     <img class="drag-drop__box--icon"
                       src="./assets/images/icon-drag-and-drop.svg" alt="">
-                    <span class="drag-drop__box--text">Link #1</span>
+                    <span class="drag-drop__box--text">Link #${
+                      this._linkNumber
+                    }</span>
                   </p>
                   <button class="btn-remove">Remove</button>
                 </div>

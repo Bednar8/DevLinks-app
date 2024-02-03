@@ -1,4 +1,4 @@
-const state = {
+export const state = {
   user: {
     name: '',
     lastName: '',
@@ -9,4 +9,5 @@ const state = {
     url: '',
     correctUrl: false,
   },
+  linkPanels: [],
 };
