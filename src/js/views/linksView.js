@@ -61,14 +61,22 @@ class LinksView extends View {
 
   checkUrl() {
     const inputs = document.querySelectorAll('.link-input');
+    const input__error = document.querySelectorAll('.input__error');
     let correctUrl;
 
-    inputs.forEach(input => {
+    inputs.forEach((input, i) => {
       try {
         new URL(input.value);
         correctUrl = true;
+        input.classList.remove('link-input--error');
+        input__error[i].classList.add('hidden');
       } catch (err) {
+        input.classList.add('link-input--error');
+        input__error[i].classList.remove('hidden');
         correctUrl = false;
+        if (input.value.trim() === '')
+          input__error[i].textContent = `Can't be empty`;
+        else input__error[i].textContent = `Incorrect URL`;
       }
     });
 
@@ -82,7 +90,6 @@ class LinksView extends View {
     panels.forEach((panel, i) => {
       const input = panel.querySelector('.link-input').value;
       const platform = panel.querySelector('.platform__name').textContent;
-
       links.push({
         url: input,
         platform: platform,
@@ -107,7 +114,7 @@ class LinksView extends View {
           <button class="dropdown__btn">
             <div> 
               <img class="platform__icon" src="${githubIcon}" alt="">
-              <p class="platform__name">GitHub</p>
+              <p class="platform__name" data-platform="github">GitHub</p>
             </div>
             <img src="${arrowDownIcon}" alt="">
           </button>
@@ -119,7 +126,7 @@ class LinksView extends View {
                 <span class="dropdown__item--name">Github</span>
               </p>
             <li class="dropdown__menu--item"
-              data-platform="frontent-mentor">
+              data-platform="frontend-mentor">
               <p>
                 <img class="dropdown__item--img" src="${frontentMentorIcon}" alt="">
                 <span class="dropdown__item--name">Frontend Mentor</span>
@@ -193,7 +200,7 @@ class LinksView extends View {
               </p>
             </li>
             <li class="dropdown__menu--item"
-              data-platform="stack overflow">
+              data-platform="stackoverflow">
               <p>
                 <img class="dropdown__item--img" src="${stackOverflowIcon}" alt="">
                 <span class="dropdown__item--name">Stack Overflow</span>
@@ -206,7 +213,7 @@ class LinksView extends View {
           <input id="link-input" type="text"
             class="link-input"
             placeholder="e.g. https://www.github.com/Bednar8">
-          <p class="input__error">Can't be empty</p>
+          <p class="input__error hidden">Can't be empty</p>
 
         </div>
     `;

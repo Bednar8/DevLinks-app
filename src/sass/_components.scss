@@ -162,11 +162,12 @@
 }
 
 .input__error {
-  display: none;
+  // display: none;
   position: absolute;
   right: 0.8rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: $red;
+  font-weight: bold;
 }
 
 .form__item {

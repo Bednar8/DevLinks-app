@@ -1,32 +1,34 @@
-@use "./colors" as *;
+@use './colors' as *;
 .phone__mokup {
-	display: none;
+  display: none;
 }
 
 .phone__mokup--img {
-	position: relative;
+  position: relative;
 
-	.devlinks__list {
-		position: absolute;
-		top: 277.5px;
-		left: 50%;
-		transform: translateX(-50%);
-		margin: 0;
-		width: 237px;
+  .devlinks__list {
+    position: absolute;
+    top: 277.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    width: 237px;
+    height: 300px;
+    overflow-y: scroll;
 
-		&--item {
-			height: 44px;
-		}
-	}
+    &--item {
+      height: 44px;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
-	.phone__mokup {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0 11rem;
-		background-color: $white;
-		border-radius: 12px;
-	}
+  .phone__mokup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 11rem;
+    background-color: $white;
+    border-radius: 12px;
+  }
 }

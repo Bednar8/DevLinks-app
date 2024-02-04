@@ -2,6 +2,7 @@ import * as model from './model.js';
 import { view } from './views/View';
 import linksView from './views/linksView';
 import dropdownPlatformView from './views/dropdownPlatformView.js';
+import phoneView from './views/phoneView.js';
 
 const controlAddPanelLink = function () {
   if (!linksView.checkUrl() && model.state.panels.length > 0) return;
@@ -12,6 +13,9 @@ const controlAddPanelLink = function () {
   // store links data in state
   model.state.links = [];
   linksView.storeLinkData(model.state.links);
+
+  // add link to phone mokup
+  phoneView.createLink(model.state.links);
 };
 
 const controlRemovePanelLink = function (panelToRemoveIndex) {
@@ -22,6 +26,7 @@ const controlRemovePanelLink = function (panelToRemoveIndex) {
 
 const controlSave = function () {
   // store links data in state
+  if (!linksView.checkUrl()) return;
   model.state.links = [];
   linksView.storeLinkData(model.state.links);
   console.log(model.state);
@@ -29,6 +34,7 @@ const controlSave = function () {
 
 const controlChoosePlatform = function () {
   dropdownPlatformView.choosePlatform();
+  phoneView.changeLinkInMokup(model.state.links);
 };
 
 const init = function () {

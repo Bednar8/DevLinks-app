@@ -29,13 +29,15 @@ class DropdownPlatformView extends View {
         const choosenPlatformIcon = choosenPlatform.querySelector(
           '.dropdown__item--img'
         );
+        const choosenPlatformDataset = choosenPlatform.dataset.platform;
+        platformName.dataset.platform = choosenPlatformDataset;
         platformName.textContent = choosenPlatformName.textContent;
         platformIcon.src = choosenPlatformIcon.src;
         menu.classList.add('hidden');
         const allPlatforms = document.querySelectorAll('.dropdown__menu--item');
-        allPlatforms.forEach(platform =>
-          platform.classList.remove('dropdown__menu--item-active')
-        );
+        allPlatforms.forEach(platform => {
+          platform.classList.remove('dropdown__menu--item-active');
+        });
         choosenPlatform.classList.add('dropdown__menu--item-active');
       });
     });
