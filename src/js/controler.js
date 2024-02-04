@@ -1,6 +1,7 @@
 import * as model from './model.js';
 import { view } from './views/View';
 import linksView from './views/linksView';
+import dropdownPlatformView from './views/dropdownPlatformView.js';
 
 const controlAddPanelLink = function () {
   if (!linksView.checkUrl() && model.state.panels.length > 0) return;
@@ -8,14 +9,26 @@ const controlAddPanelLink = function () {
   model.state.panels.push(linksView.createPanelLink());
   linksView.appendPanelLink();
 
-  // add link data (url, platfrom) to links array
-  model.state.links.push(linksView.storeLinkData());
-  // linksView.storeLinkData();
+  // store links data in state
+  model.state.links = [];
+  linksView.storeLinkData(model.state.links);
+};
+
+const controlSave = function () {
+  // store links data in state
+  model.state.links = [];
+  linksView.storeLinkData(model.state.links);
   console.log(model.state);
 };
 
+const controlChoosePlatform = function () {
+  dropdownPlatformView.choosePlatform();
+};
+
 const init = function () {
+  view.addHandlerSaveBtn(controlSave);
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
+  dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);
 };
 
 init();
