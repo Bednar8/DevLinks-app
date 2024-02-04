@@ -169,11 +169,12 @@
     background-image: url('/assets/images/icon-link.svg');
     background-repeat: no-repeat;
     background-position: 1.6rem;
+    font-size: 1.6rem;
     text-indent: 20px;
 
     &::placeholder {
       color: $grey;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     &:focus {

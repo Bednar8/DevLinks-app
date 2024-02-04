@@ -14,6 +14,12 @@ const controlAddPanelLink = function () {
   linksView.storeLinkData(model.state.links);
 };
 
+const controlRemovePanelLink = function (panelToRemoveIndex) {
+  model.state.links.splice(panelToRemoveIndex, 1);
+  model.state.panels.splice(panelToRemoveIndex, 1);
+  console.log(model.state);
+};
+
 const controlSave = function () {
   // store links data in state
   model.state.links = [];
@@ -28,6 +34,7 @@ const controlChoosePlatform = function () {
 const init = function () {
   view.addHandlerSaveBtn(controlSave);
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
+  linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);
 };
 

@@ -27,6 +27,27 @@ class LinksView extends View {
     });
   }
 
+  addHandlerRemovePanelLink(handler) {
+    this._parentEl.addEventListener('click', function (e) {
+      const panels = document.querySelectorAll('.add-link__box--preview');
+      panels.forEach((panel, i, arr) => {
+        const btnRemove = panel.querySelector('.btn-remove');
+        if (e.target !== btnRemove) return;
+        const panelEl = btnRemove.closest('.add-link__box--preview');
+        handler(i);
+        panelEl.remove();
+        const panelNum = document.querySelectorAll('.drag-drop__box--text');
+        panelNum.forEach((panel, i) => (panel.textContent = `Link #${++i}`));
+        if (arr.length === 1) {
+          const getStartedBox = document.querySelector(
+            '.add-link__box--content'
+          );
+          getStartedBox.classList.remove('hidden');
+        }
+      });
+    });
+  }
+
   appendPanelLink() {
     const getStartedBox = document.querySelector('.add-link__box--content');
     getStartedBox.classList.add('hidden');
