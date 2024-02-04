@@ -35,6 +35,7 @@ const controlSave = function () {
 };
 
 const controlChoosePlatform = function () {
+  // const links = phoneView.createLink(model.state.links);
   dropdownPlatformView.choosePlatform();
   phoneView.changeLinkInMokup(model.state.links);
 };

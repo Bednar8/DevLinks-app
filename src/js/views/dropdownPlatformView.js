@@ -18,7 +18,7 @@ class DropdownPlatformView extends View {
     const dropdownMenu = document.querySelectorAll('.dropdown__menu');
     dropdownMenu.forEach(menu => {
       if (!menu) return;
-      menu.addEventListener('click', function (e) {
+      menu.addEventListener('click', e => {
         const dropdown = menu.closest('.dropdown');
         let platformName = dropdown.querySelector('.platform__name');
         let platformIcon = dropdown.querySelector('.platform__icon');

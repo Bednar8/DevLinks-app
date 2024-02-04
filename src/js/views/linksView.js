@@ -162,7 +162,7 @@ class LinksView extends View {
                 <span class="dropdown__item--name">Twitch</span>
               </p>
             </li>
-            <li class="dropdown__menu--item" data-platform="dev-to">
+            <li class="dropdown__menu--item" data-platform="devto">
               <p>
                 <img class="dropdown__item--img" src="${devToIcon}" alt="">
                 <span class="dropdown__item--name">Dev.to</span>

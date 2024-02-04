@@ -1,5 +1,6 @@
 export default class View {
   _parentEl = document.querySelector('.app');
+  _data;
 
   addHandlerSaveBtn(handler) {
     this._parentEl.addEventListener('click', function (e) {
