@@ -23,7 +23,7 @@ class PhoneView extends View {
     dropdownMenu.forEach(menu => {
       menu.addEventListener('click', e => {
         const dropdownItem = e.target.closest('.dropdown__menu--item');
-        if (e.target !== dropdownItem) return;
+        if (!dropdownItem) return;
         this.createLink(links);
       });
     });
@@ -38,10 +38,7 @@ class PhoneView extends View {
 
     devLinksList.innerHTML = '';
     links.forEach((link, i) => {
-      // const dropdownBtn = document.querySelectorAll('.dropdown__btn');
-      console.log(links);
       const currentIcon = box.querySelectorAll('.platform__icon');
-      console.log(currentIcon);
 
       devLinksList.insertAdjacentHTML(
         'beforeend',
@@ -58,7 +55,6 @@ class PhoneView extends View {
   removeLinkFromMokup(linkToRemove) {
     const devlinks = document.querySelectorAll('.devlinks__list--item');
     devlinks[linkToRemove].remove();
-    // devlinks.forEach(link => link[linkToRemove].remove());
   }
 
   _generateMarkupLink(platformName, platform, iconUrl, id) {

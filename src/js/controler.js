@@ -3,6 +3,8 @@ import { view } from './views/View';
 import linksView from './views/linksView';
 import dropdownPlatformView from './views/dropdownPlatformView.js';
 import phoneView from './views/phoneView.js';
+import navView from './views/navView.js';
+import profileDetailsView from './views/profileDetailsView.js';
 
 const controlAddPanelLink = function () {
   if (!linksView.checkUrl() && model.state.panels.length > 0) return;
@@ -40,8 +42,13 @@ const controlChoosePlatform = function () {
   phoneView.changeLinkInMokup(model.state.links);
 };
 
+const controlNav = function () {
+  profileDetailsView.render();
+};
+
 const init = function () {
   view.addHandlerSaveBtn(controlSave);
+  navView.addHandlerNav(controlNav);
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
   linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);

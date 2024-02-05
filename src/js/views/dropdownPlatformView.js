@@ -4,12 +4,14 @@ class DropdownPlatformView extends View {
   addHandlerDropdownBtn(handler) {
     this._parentEl.addEventListener('click', function (e) {
       const btnsDropdown = document.querySelectorAll('.dropdown__btn');
+
       btnsDropdown.forEach(btn => {
-        if (e.target !== btn) return;
         const dropdown = btn.closest('.dropdown');
-        const menuDropdown = dropdown.querySelector('.dropdown__menu');
-        menuDropdown.classList.toggle('hidden');
-        handler();
+        if (e.target === btn || btn.contains(e.target)) {
+          const menuDropdown = dropdown.querySelector('.dropdown__menu');
+          menuDropdown.classList.toggle('hidden');
+          handler();
+        }
       });
     });
   }
