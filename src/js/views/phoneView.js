@@ -34,24 +34,36 @@ class PhoneView extends View {
     const panelBox = document.querySelectorAll('.add-link__box--preview');
     const platformsName = document.querySelectorAll('.platform__name');
     const platformsIcon = document.querySelectorAll('.platform__icon');
+    const box = document.querySelector('.add-link__box');
 
     devLinksList.innerHTML = '';
     links.forEach((link, i) => {
-      console.log(platformsName, platformsIcon);
+      // const dropdownBtn = document.querySelectorAll('.dropdown__btn');
+      console.log(links);
+      const currentIcon = box.querySelectorAll('.platform__icon');
+      console.log(currentIcon);
+
       devLinksList.insertAdjacentHTML(
-        'afterbegin',
+        'beforeend',
         this._generateMarkupLink(
           platformsName[i].textContent,
           platformsName[i].dataset.platform,
-          platformsIcon[i].src
+          currentIcon[i].src,
+          i
         )
       );
     });
   }
 
-  _generateMarkupLink(platformName, platform, iconUrl) {
+  removeLinkFromMokup(linkToRemove) {
+    const devlinks = document.querySelectorAll('.devlinks__list--item');
+    devlinks[linkToRemove].remove();
+    // devlinks.forEach(link => link[linkToRemove].remove());
+  }
+
+  _generateMarkupLink(platformName, platform, iconUrl, id) {
     return `
-        <li class="devlinks__list--item" data-platform="${platform}">
+        <li class="devlinks__list--item" data-platform="${platform}" data-id="${id}">
           <div class="devlinks__list--item-platform">
           <img class="platform__icon" src="${iconUrl}" alt="">
             ${platformName}

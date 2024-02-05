@@ -2,7 +2,10 @@
 
 .app__content--stepLinks {
   width: 100%;
+  min-height: 400px;
+  max-height: 500px;
   margin-bottom: 5rem;
+  overflow-y: scroll;
 }
 
 .btn__box {
@@ -241,8 +244,6 @@
 
 @media (min-width: 768px) {
   .add-link__box {
-    max-height: 600px;
-    overflow-y: scroll;
     &--content {
       img {
         height: 16rem;

@@ -22,7 +22,7 @@ const controlRemovePanelLink = function (panelToRemoveIndex) {
   model.state.links.splice(panelToRemoveIndex, 1);
   model.state.panels.splice(panelToRemoveIndex, 1);
   // feature to do -> remove correct link form phone mokup
-  phoneView.createLink(model.state.links);
+  phoneView.removeLinkFromMokup(panelToRemoveIndex);
   console.log(model.state);
 };
 

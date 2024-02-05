@@ -150,7 +150,7 @@ class LinksView extends View {
                 <span class="dropdown__item--name">YouTube</span>
               </p>
             </li>
-            <li class="dropdown__menu--item" data-platform="fb">
+            <li class="dropdown__menu--item" data-platform="facebook">
               <p>
                 <img class="dropdown__item--img" src="${facebookIcon}" alt="">
                 <span class="dropdown__item--name">Facebook</span>
