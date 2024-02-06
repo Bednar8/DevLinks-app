@@ -9,4 +9,6 @@ export const state = {
   },
   panels: [],
   links: [],
+  currentPage: 'links',
+  correctForm: false,
 };

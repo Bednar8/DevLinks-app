@@ -1,12 +1,31 @@
 import View from './View';
+import uploadIcon from '../../assets/images/icon-upload-image.svg';
 
 class ProfileDetails extends View {
   _appContent = document.querySelector('#app__content');
 
-  render() {
+  render(data) {
+    this._data = data;
     this._appContent.innerHTML = '';
     const markup = this._generateMarkup();
     this._appContent.insertAdjacentHTML('afterbegin', markup);
+    this._data.currentPage = 'profile details';
+  }
+
+  formValidation() {
+    const inputsRequired = document.querySelectorAll('.input__required');
+    let correctForm;
+    inputsRequired.forEach(input => {
+      const errorText = input.parentElement.querySelector('.input__error');
+      if (input.value.trim() === '') {
+        errorText.classList.remove('hidden');
+        correctForm = false;
+      } else {
+        errorText.classList.add('hidden');
+        correctForm = true;
+      }
+    });
+    return correctForm;
   }
 
   _generateMarkup() {
@@ -23,7 +42,7 @@ class ProfileDetails extends View {
                 <h3 class="text-m">Profile picture</h3>
                 <div class="upload__box">
                   <label class="label-upload heading-S">
-                    <img src="./assets/images/icon-upload-image.svg" alt="">
+                    <img src="${uploadIcon}" alt="">
                     + Upload Image
                     <input type="file" id="photo" name="photo"
                       accept="image/png, image/jpeg">
@@ -40,21 +59,21 @@ class ProfileDetails extends View {
                 <form>
                   <div class="form__item">
                     <label for="name">First name*</label>
-                    <input type="text" id="name" placeholder="e.g. John">
-                    <p class="input__error">Can't be empty</p>
+                    <input class="input__required" type="text" id="name" placeholder="e.g. John">
+                    <p class="input__error hidden">Can't be empty</p>
                   </div>
                   <div class="form__item">
                     <label for="surname">Last name*</label>
-                    <input type="text" id="surname"
+                    <input class="input__required" type="text" id="surname"
                       placeholder="e.g. Appleseed">
-                    <p class="input__error">Can't be empty</p>
+                    <p class="input__error hidden">Can't be empty</p>
 
                   </div>
                   <div class="form__item">
                     <label for="mail">Email</label>
                     <input type="text" id="mail"
                       placeholder="e.g. email@example.com">
-                    <p class="input__error">Can't be empty</p>
+                    <p class="input__error hidden">Can't be empty</p>
 
                   </div>
                 </form>

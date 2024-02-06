@@ -1,19 +1,4 @@
 import View from './View';
-// import githubIcon from '../../assets/images/icon-github.svg';
-// import arrowDownIcon from '../../assets/images/icon-chevron-down.svg';
-// import frontentMentorIcon from '../../assets/images/icon-frontend-mentor.svg';
-// import twitterIcon from '../../assets/images/icon-twitter.svg';
-// import twitchIcon from '../../assets/images/icon-twitch.svg';
-// import youtubeIcon from '../../assets/images/icon-youtube.svg';
-// import facebookIcon from '../../assets/images/icon-facebook.svg';
-// import devToIcon from '../../assets/images/icon-devto.svg';
-// import codewarsIcon from '../../assets/images/icon-codewars.svg';
-// import codepenIcon from '../../assets/images/icon-codepen.svg';
-// import freeCodeCampIcon from '../../assets/images/icon-freecodecamp.svg';
-// import gitlabIcon from '../../assets/images/icon-gitlab.svg';
-// import hashnodeIcon from '../../assets/images/icon-hashnode.svg';
-// import stackOverflowIcon from '../../assets/images/icon-stack-overflow.svg';
-// import linkedInIcon from '../../assets/images/icon-linkedin.svg';
 
 class PhoneView extends View {
   _phoneMokup = document.querySelector('.phone__mokup');

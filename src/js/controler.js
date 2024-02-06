@@ -14,7 +14,8 @@ const controlAddPanelLink = function () {
 
   // store links data in state
   model.state.links = [];
-  linksView.storeLinkData(model.state.links);
+  linksView.storeLinkData(model.state.links, model.state.panels);
+  console.log(model.state);
 
   // add link to phone mokup
   phoneView.createLink(model.state.links);
@@ -32,23 +33,37 @@ const controlSave = function () {
   // store links data in state
   if (!linksView.checkUrl()) return;
   model.state.links = [];
-  linksView.storeLinkData(model.state.links);
-  console.log(model.state);
+  linksView.storeLinkData(model.state.links, model.state.panels);
+  switch (model.state.currentPage) {
+    case 'links':
+      view.renderSaveMessage();
+      break;
+    case 'profile details':
+      if (!profileDetailsView.formValidation(model.state)) return;
+      view.renderSaveMessage();
+      break;
+  }
 };
 
 const controlChoosePlatform = function () {
-  // const links = phoneView.createLink(model.state.links);
   dropdownPlatformView.choosePlatform();
   phoneView.changeLinkInMokup(model.state.links);
 };
 
-const controlNav = function () {
-  profileDetailsView.render();
+const controlProfileDetails = function () {
+  profileDetailsView.render(model.state);
+  console.log(model.state);
+};
+
+const controlLinks = function () {
+  linksView.render(model.state);
+  console.log(model.state);
 };
 
 const init = function () {
   view.addHandlerSaveBtn(controlSave);
-  navView.addHandlerNav(controlNav);
+  navView.addHandlerProfileDetails(controlProfileDetails);
+  navView.addHandlerLinks(controlLinks);
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
   linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);
