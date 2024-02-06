@@ -2,6 +2,7 @@ export const state = {
   user: {
     name: '',
     lastName: '',
+    email: '',
     imgUrl: '',
   },
   currentLinks: {

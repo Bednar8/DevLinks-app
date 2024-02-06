@@ -32,17 +32,21 @@ const controlRemovePanelLink = function (panelToRemoveIndex) {
 const controlSave = function () {
   // store links data in state
   if (!linksView.checkUrl()) return;
-  model.state.links = [];
-  linksView.storeLinkData(model.state.links, model.state.panels);
+
   switch (model.state.currentPage) {
     case 'links':
       view.renderSaveMessage();
+      model.state.links = [];
+      linksView.storeLinkData(model.state.links, model.state.panels);
       break;
     case 'profile details':
       if (!profileDetailsView.formValidation(model.state)) return;
+      profileDetailsView.saveProfileDetailsData(model.state);
       view.renderSaveMessage();
       break;
   }
+
+  console.log(model.state);
 };
 
 const controlChoosePlatform = function () {
@@ -67,6 +71,7 @@ const init = function () {
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
   linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);
+  profileDetailsView.addHandlerInputs();
 };
 
 init();

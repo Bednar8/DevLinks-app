@@ -4,12 +4,49 @@ import uploadIcon from '../../assets/images/icon-upload-image.svg';
 class ProfileDetails extends View {
   _appContent = document.querySelector('#app__content');
 
+  addHandlerInputs(handler) {
+    this._parentEl.addEventListener('keyup', function (e) {
+      const firstNameMokup = document.querySelector(
+        '.phone__mokup--first-name'
+      );
+      const lastNameMokup = document.querySelector('.phone__mokup--last-name');
+      const emailMokup = document.querySelector('.phone__mokup--email');
+
+      const firstNameInput = document.querySelector('input#name');
+      const lastNameInput = document.querySelector('input#surname');
+      const emailInput = document.querySelector('input#mail');
+
+      if (e.target === firstNameInput) {
+        firstNameMokup.textContent = firstNameInput.value;
+      }
+
+      if (e.target === lastNameInput) {
+        lastNameMokup.textContent = lastNameInput.value;
+      }
+
+      if (e.target === emailInput) {
+        emailMokup.textContent = emailInput.value;
+      }
+    });
+  }
+
   render(data) {
     this._data = data;
     this._appContent.innerHTML = '';
     const markup = this._generateMarkup();
     this._appContent.insertAdjacentHTML('afterbegin', markup);
     this._data.currentPage = 'profile details';
+  }
+
+  saveProfileDetailsData(data) {
+    console.log(data);
+    const firstNameInput = document.querySelector('input#name').value;
+    const lastNameInput = document.querySelector('input#surname').value;
+    const emailInput = document.querySelector('input#mail').value;
+
+    data.user.name = firstNameInput;
+    data.user.lastName = lastNameInput;
+    data.user.email = emailInput;
   }
 
   formValidation() {
@@ -59,12 +96,16 @@ class ProfileDetails extends View {
                 <form>
                   <div class="form__item">
                     <label for="name">First name*</label>
-                    <input class="input__required" type="text" id="name" placeholder="e.g. John">
+                    <input class="input__required" value="${
+                      this._data.user.name ? this._data.user.name : ''
+                    }" type="text" id="name" placeholder="e.g. John">
                     <p class="input__error hidden">Can't be empty</p>
                   </div>
                   <div class="form__item">
                     <label for="surname">Last name*</label>
-                    <input class="input__required" type="text" id="surname"
+                    <input class="input__required" value="${
+                      this._data.user.lastName ? this._data.user.lastName : ''
+                    }" type="text" id="surname"
                       placeholder="e.g. Appleseed">
                     <p class="input__error hidden">Can't be empty</p>
 
@@ -72,6 +113,9 @@ class ProfileDetails extends View {
                   <div class="form__item">
                     <label for="mail">Email</label>
                     <input type="text" id="mail"
+                    value="${
+                      this._data.user.email ? this._data.user.email : ''
+                    }"
                       placeholder="e.g. email@example.com">
                     <p class="input__error hidden">Can't be empty</p>
 
