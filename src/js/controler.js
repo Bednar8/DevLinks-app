@@ -5,6 +5,7 @@ import dropdownPlatformView from './views/dropdownPlatformView.js';
 import phoneView from './views/phoneView.js';
 import navView from './views/navView.js';
 import profileDetailsView from './views/profileDetailsView.js';
+import previewView from './views/previewView.js';
 
 const controlAddPanelLink = function () {
   if (!linksView.checkUrl() && model.state.panels.length > 0) return;
@@ -24,7 +25,7 @@ const controlAddPanelLink = function () {
 const controlRemovePanelLink = function (panelToRemoveIndex) {
   model.state.links.splice(panelToRemoveIndex, 1);
   model.state.panels.splice(panelToRemoveIndex, 1);
-  // feature to do -> remove correct link form phone mokup
+
   phoneView.removeLinkFromMokup(panelToRemoveIndex);
   console.log(model.state);
 };
@@ -35,14 +36,14 @@ const controlSave = function () {
 
   switch (model.state.currentPage) {
     case 'links':
-      view.renderSaveMessage();
+      view.renderSaveMessage('Your changes have been successfully saved!');
       model.state.links = [];
       linksView.storeLinkData(model.state.links, model.state.panels);
       break;
     case 'profile details':
       if (!profileDetailsView.formValidation(model.state)) return;
       profileDetailsView.saveProfileDetailsData(model.state);
-      view.renderSaveMessage();
+      view.renderSaveMessage('Your changes have been successfully saved!');
       break;
   }
 
@@ -55,19 +56,23 @@ const controlChoosePlatform = function () {
 };
 
 const controlProfileDetails = function () {
-  profileDetailsView.render(model.state);
   console.log(model.state);
+  profileDetailsView.render(model.state);
 };
 
 const controlLinks = function () {
   linksView.render(model.state);
-  console.log(model.state);
+};
+
+const controlPreview = function () {
+  previewView.render(model.state);
 };
 
 const init = function () {
   view.addHandlerSaveBtn(controlSave);
   navView.addHandlerProfileDetails(controlProfileDetails);
   navView.addHandlerLinks(controlLinks);
+  navView.addHandlerPreview(controlPreview);
   linksView.addHandlerAddPanelLink(controlAddPanelLink);
   linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);

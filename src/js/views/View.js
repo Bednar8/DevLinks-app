@@ -12,11 +12,11 @@ export default class View {
     });
   }
 
-  renderSaveMessage() {
+  renderSaveMessage(msg) {
     const markup = `
     <div class="copied__link">
       <img src="${savedIcon}" alt="">
-      <p>Your changes have been successfully saved!</p>
+      <p>${msg}</p>
     </div>
   `;
     this._parentEl.insertAdjacentHTML('beforeend', markup);
@@ -27,6 +27,22 @@ export default class View {
     setTimeout(() => {
       this._parentEl.querySelector('.copied__link').remove();
     }, 2000);
+  }
+
+  _generateMarkupLinks() {
+    return this._data.links
+      .map((link, i) => {
+        return `
+            <li class="devlinks__list--item" data-platform="${this._data.links[i].dataPlatform}" data-id="${this._data.links[i].id}">
+              <div class="devlinks__list--item-platform">
+              <img class="platform__icon" src="${this._data.links[i].iconSrc}" alt="">
+                ${this._data.links[i].platform}
+              </div>
+              <img src="./assets/images/icon-arrow-right.svg" alt="">
+            </li>
+        `;
+      })
+      .join('');
   }
 }
 

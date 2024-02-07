@@ -3,8 +3,9 @@ import uploadIcon from '../../assets/images/icon-upload-image.svg';
 
 class ProfileDetails extends View {
   _appContent = document.querySelector('#app__content');
+  _containerApp = document.querySelector('.container-app');
 
-  addHandlerInputs(handler) {
+  addHandlerInputs() {
     this._parentEl.addEventListener('keyup', function (e) {
       const firstNameMokup = document.querySelector(
         '.phone__mokup--first-name'

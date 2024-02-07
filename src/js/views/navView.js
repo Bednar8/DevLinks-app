@@ -2,6 +2,7 @@ import View from './View';
 
 class Nav {
   _parentEl = document.querySelector('.container-app');
+
   addHandlerProfileDetails(handler) {
     this._parentEl.addEventListener('click', function (e) {
       const link = e.target.closest('.nav__link--profile-details');
@@ -26,6 +27,14 @@ class Nav {
         const links = document.querySelectorAll('.nav__link--links');
         links.forEach(link => link.classList.add('active'));
       }
+      handler();
+    });
+  }
+
+  addHandlerPreview(handler) {
+    this._parentEl.addEventListener('click', function (e) {
+      const link = e.target.closest('.nav__link--preview');
+      if (!link) return;
       handler();
     });
   }
