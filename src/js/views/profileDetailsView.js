@@ -37,6 +37,7 @@ class ProfileDetails extends View {
     const markup = this._generateMarkup();
     this._appContent.insertAdjacentHTML('afterbegin', markup);
     this._data.currentPage = 'profile details';
+    this.checkRender();
   }
 
   saveProfileDetailsData(data) {

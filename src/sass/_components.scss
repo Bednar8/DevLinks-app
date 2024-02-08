@@ -4,6 +4,10 @@
   display: none;
 }
 
+.width-content {
+  max-width: max-content;
+}
+
 .heading-M {
   margin-bottom: 0.8rem;
   color: $dark-grey;
@@ -190,4 +194,8 @@
       transform: translateY(-50%);
     }
   }
+}
+
+.hidden {
+  display: none;
 }

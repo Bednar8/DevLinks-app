@@ -12,6 +12,23 @@ export default class View {
     });
   }
 
+  checkRender() {
+    const linksProfileNavs = document.querySelectorAll('.nav__links-profile');
+    const phoneMockup = document.querySelector('.phone__mokup');
+    const appContent = document.querySelector('#app__content');
+    if (this._data.currentPage === 'preview') {
+      appContent.classList.add('preview');
+      appContent.classList.remove('section');
+      phoneMockup.classList.add('hidden');
+      linksProfileNavs.forEach(nav => nav.classList.add('hidden'));
+    } else {
+      phoneMockup.classList.remove('hidden');
+      linksProfileNavs.forEach(nav => nav.classList.remove('hidden'));
+      appContent.classList.remove('preview');
+      appContent.classList.add('section');
+    }
+  }
+
   renderSaveMessage(msg) {
     const markup = `
     <div class="copied__link">

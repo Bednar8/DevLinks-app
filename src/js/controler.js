@@ -10,13 +10,13 @@ import previewView from './views/previewView.js';
 const controlAddPanelLink = function () {
   if (!linksView.checkUrl() && model.state.panels.length > 0) return;
   // add panel link to panels array and append it in browser
+
   model.state.panels.push(linksView.createPanelLink());
   linksView.appendPanelLink();
 
   // store links data in state
   model.state.links = [];
   linksView.storeLinkData(model.state.links, model.state.panels);
-  console.log(model.state);
 
   // add link to phone mokup
   phoneView.createLink(model.state.links);
@@ -27,7 +27,6 @@ const controlRemovePanelLink = function (panelToRemoveIndex) {
   model.state.panels.splice(panelToRemoveIndex, 1);
 
   phoneView.removeLinkFromMokup(panelToRemoveIndex);
-  console.log(model.state);
 };
 
 const controlSave = function () {
@@ -46,8 +45,6 @@ const controlSave = function () {
       view.renderSaveMessage('Your changes have been successfully saved!');
       break;
   }
-
-  console.log(model.state);
 };
 
 const controlChoosePlatform = function () {
@@ -56,7 +53,6 @@ const controlChoosePlatform = function () {
 };
 
 const controlProfileDetails = function () {
-  console.log(model.state);
   profileDetailsView.render(model.state);
 };
 
@@ -77,6 +73,7 @@ const init = function () {
   linksView.addHandlerRemovePanelLink(controlRemovePanelLink);
   dropdownPlatformView.addHandlerDropdownBtn(controlChoosePlatform);
   profileDetailsView.addHandlerInputs();
+  previewView.addHandlerBackToProfile(controlProfileDetails);
 };
 
 init();

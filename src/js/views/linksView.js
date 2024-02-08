@@ -103,7 +103,6 @@ class LinksView extends View {
     );
     panels.forEach((panel, i) => {
       if (!panelsEl[i]) return;
-      console.log(panelsEl[i]);
       const input = panelsEl[i].querySelector('.link-input').value;
       const platform = panelsEl[i].querySelector('.platform__name').textContent;
       const dataPlatform =

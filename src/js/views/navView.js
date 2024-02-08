@@ -38,6 +38,8 @@ class Nav {
       handler();
     });
   }
+
+  _generateMarkup() {}
 }
 
 export default new Nav();
