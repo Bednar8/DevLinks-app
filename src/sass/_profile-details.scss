@@ -1,79 +1,108 @@
-@use "./colors" as *;
+@use './colors' as *;
 
 .form__item {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	font-size: 1.2rem;
-	color: $grey;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  color: $grey;
 
-	input {
-		padding: 1.2rem 1.6rem;
-		border-radius: 8px;
-		border: 1px solid $borders;
-		font-size: 1.4rem;
+  input {
+    padding: 1.2rem 1.6rem;
+    border-radius: 8px;
+    border: 1px solid $borders;
+    font-size: 1.4rem;
 
-		&:focus {
-			outline: none;
-			border: 1px solid var(--Purple, #633cff);
-			background: var(--White, #fff);
-			box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
-		}
-	}
+    &:focus {
+      outline: none;
+      border: 1px solid var(--Purple, #633cff);
+      background: var(--White, #fff);
+      box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+    }
+  }
 
-	label {
-		margin-top: 1.2rem;
-	}
+  label {
+    margin-top: 1.2rem;
+  }
 
-	@media (min-width: 768px) {
-		flex-direction: row;
-		margin-bottom: 1.2rem;
-		font-size: 1.6rem;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
 
-		input {
-			width: 55%;
-		}
-		label {
-			width: 45%;
-		}
-	}
+    input {
+      width: 55%;
+    }
+    label {
+      width: 45%;
+    }
+  }
 }
 
 @media (min-width: 768px) {
-	.profile__picture--box {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+  .profile__picture--box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-		h3 {
-			width: 45%;
-		}
-	}
+    h3 {
+      width: 45%;
+    }
+  }
 
-	.upload__box {
-		display: flex;
-		align-items: center;
-		width: 55%;
+  .upload__box {
+    display: flex;
+    align-items: center;
+    width: 55%;
 
-		.label-upload {
-			margin-right: 2.4rem;
-			min-width: 193px;
-			min-height: 193px;
-			img {
-				height: max-content;
-				margin-bottom: 0.8rem;
-			}
-		}
+    .label-upload {
+      margin-right: 2.4rem;
+      min-width: 193px;
+      min-height: 193px;
+      img {
+        height: max-content;
+        margin-bottom: 0.8rem;
+      }
+    }
 
-		p {
-			display: inline-block;
-		}
-	}
+    p {
+      display: inline-block;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
-	.section {
-		margin: 0;
-		padding: 4rem;
-	}
+  .section {
+    margin: 0;
+    padding: 4rem;
+  }
+}
+
+.label-upload-active {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+
+  p {
+    z-index: 5;
+  }
+
+  svg {
+    z-index: 5;
+  }
+
+  &:hover .label-shadow {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.label-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  transition: background-color 0.3s;
 }

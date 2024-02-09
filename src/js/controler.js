@@ -61,6 +61,12 @@ const controlLinks = function () {
 };
 
 const controlPreview = function () {
+  if (model.state.currentPage === 'links' && !linksView.checkUrl()) return;
+  if (
+    model.state.currentPage === 'profile details' &&
+    !profileDetailsView.formValidation(model.state)
+  )
+    return;
   previewView.render(model.state);
 };
 

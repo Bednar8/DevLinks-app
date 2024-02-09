@@ -37,7 +37,16 @@ class ProfileDetails extends View {
     const markup = this._generateMarkup();
     this._appContent.insertAdjacentHTML('afterbegin', markup);
     this._data.currentPage = 'profile details';
+    this.addNavActive();
     this.checkRender();
+    this.showProfileImg(data);
+  }
+
+  addNavActive() {
+    const links = document.querySelectorAll('.nav__link--profile-details');
+    const allLinks = document.querySelectorAll('.nav__item--link');
+    allLinks.forEach(link => link.classList.remove('active'));
+    links.forEach(link => link.classList.add('active'));
   }
 
   saveProfileDetailsData(data) {
@@ -67,6 +76,30 @@ class ProfileDetails extends View {
     return correctForm;
   }
 
+  showProfileImg(data) {
+    const profileImg = document.querySelector('.profile-img');
+    const inputProfileImg = document.querySelector('#photo-file');
+    const imgBox = document.querySelector('.phone__mokup--img-profile');
+    const label = document.querySelector('.label-upload');
+    const labelText = document.querySelector('.label-text');
+    const path = label.querySelector('path');
+    const labelShadow = document.querySelector('.label-shadow');
+
+    inputProfileImg.onchange = function () {
+      this._data = data;
+      imgBox.classList.remove('hidden');
+      profileImg.src = URL.createObjectURL(inputProfileImg.files[0]);
+      label.style.backgroundImage = `url('${profileImg.src}')`;
+      label.style.backgroundColor = `rgba(0,0,0,0.5)`;
+      label.classList.add('label-upload-active');
+      labelText.textContent = '+ Change Image';
+      labelText.style.color = '#FFF';
+      path.style.fill = '#FFF';
+      labelShadow.classList.remove('hidden');
+      this._data.user.imgUrl = profileImg.src;
+    };
+  }
+
   _generateMarkup() {
     return `
     <div class="section__box">
@@ -80,10 +113,27 @@ class ProfileDetails extends View {
               <div class="add-link__box--content profile__picture--box">
                 <h3 class="text-m">Profile picture</h3>
                 <div class="upload__box">
-                  <label class="label-upload heading-S">
-                    <img src="${uploadIcon}" alt="">
-                    + Upload Image
-                    <input type="file" id="photo" name="photo"
+                  <label class="label-upload heading-S ${
+                    this._data.user.imgUrl ? 'label-upload-active' : ''
+                  }" for="photo-file" ${
+      this._data.user.imgUrl !== ''
+        ? `style="background-image: url('${this._data.user.imgUrl}');`
+        : ''
+    }"> 
+    <div class="label-shadow ${
+      this._data.user.imgUrl !== '' ? '' : 'hidden'
+    }"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40"><path fill="${
+      this._data.user.imgUrl !== '' ? '#FFF' : '#633CFF'
+    }"  d="M33.75 6.25H6.25a2.5 2.5 0 0 0-2.5 2.5v22.5a2.5 2.5 0 0 0 2.5 2.5h27.5a2.5 2.5 0 0 0 2.5-2.5V8.75a2.5 2.5 0 0 0-2.5-2.5Zm0 2.5v16.055l-4.073-4.072a2.5 2.5 0 0 0-3.536 0l-3.125 3.125-6.875-6.875a2.5 2.5 0 0 0-3.535 0L6.25 23.339V8.75h27.5ZM6.25 26.875l8.125-8.125 12.5 12.5H6.25v-4.375Zm27.5 4.375h-3.34l-5.624-5.625L27.91 22.5l5.839 5.84v2.91ZM22.5 15.625a1.875 1.875 0 1 1 3.75 0 1.875 1.875 0 0 1-3.75 0Z"/></svg>
+                    <p class="label-text" ${
+                      this._data.user.imgUrl !== ''
+                        ? `style="color: #FFF;"`
+                        : ''
+                    }>+ ${
+      this._data.user.imgUrl !== '' ? 'Change' : 'Upload'
+    } Image</p>
+                    <input type="file" id="photo-file" name="photo"
                       accept="image/png, image/jpeg">
                   </label>
                   <p class="text-s">Image must be below 1024x1024px. Use PNG or

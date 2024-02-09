@@ -55,8 +55,10 @@ class Preview extends View {
     <section class="preview">
         <div class="preview__container">
             <div class="preview__profile">
-                <div class="preview__profile--img">
-                    <img src="./assets/images/WIN_20230104_16_44_19_Pro.jpg"
+                <div class="preview__profile--img ${
+                  this._data.user.imgUrl === '' ? 'hidden' : ''
+                }">
+                    <img src="${this._data.user.imgUrl}"
                         alt="">
                 </div>
                 <h1 class="preview__profile--name heading-M">
