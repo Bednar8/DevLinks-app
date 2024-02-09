@@ -125,9 +125,58 @@ class LinksView extends View {
     });
   }
 
+  dragAndDropPanels() {
+    const panelList = document.querySelector('.app__content--stepLinks');
+    const panels = document.querySelectorAll('.add-link__box--preview');
+
+    panels.forEach(panel => {
+      panel.addEventListener('dragstart', function () {
+        console.log('drag start');
+        panel.classList.add('dragging');
+      });
+
+      panel.addEventListener('dragend', function () {
+        panel.classList.remove('dragging');
+      });
+    });
+
+    panelList.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(panelList, e.clientY);
+      const draggable = document.querySelector('.dragging');
+      console.log(afterElement);
+      if (afterElement == null) {
+        panelList.appendChild(draggable);
+      } else {
+        panelList.insertBefore(draggable, afterElement);
+      }
+    });
+
+    const getDragAfterElement = function (container, y) {
+      const draggableElements = [
+        ...container.querySelectorAll('.add-link__box--preview:not(.dragging)'),
+      ];
+      return draggableElements.reduce(
+        (closest, child) => {
+          const box = child.getBoundingClientRect();
+          const offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+          } else {
+            return closest;
+          }
+        },
+        {
+          offset: Number.NEGATIVE_INFINITY,
+        }
+      ).element;
+    };
+  }
+
   createPanelLink() {
     const newPanel = document.createElement('div');
     newPanel.classList.add('add-link__box--preview');
+    newPanel.draggable = true;
     newPanel.innerHTML = `
     <div class="drag-drop__box">
           <p class="drag-drop__btn">

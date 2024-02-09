@@ -20,6 +20,9 @@ const controlAddPanelLink = function () {
 
   // add link to phone mokup
   phoneView.createLink(model.state.links);
+
+  // add handler to drag panels
+  linksView.dragAndDropPanels();
 };
 
 const controlRemovePanelLink = function (panelToRemoveIndex) {
