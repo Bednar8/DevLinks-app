@@ -53,6 +53,13 @@
     text-decoration: none;
     color: $grey;
   }
+
+  &__preview--btn.btn-primary {
+    color: $white;
+  }
+  &__preview--btn.btn-secondary {
+    color: $primary;
+  }
 }
 
 .nav__item--link.active {

@@ -1,53 +1,54 @@
-@use "./colors" as *;
+@use './colors' as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap');
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-	height: 100%;
-	box-sizing: border-box;
-	font-size: 62.5%;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-	color: $grey;
-	background-color: $light-grey;
-	font-family: "Instrument Sans", sans-serif;
-	font-size: 1.6rem;
-	line-height: 150%;
+  color: $grey;
+  background-color: $light-grey;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1.6rem;
+  line-height: 150%;
+  overflow-x: hidden;
 
-	@media (min-width: 768px) {
-		font-size: 1.8rem;
-	}
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
 }
 
 .section {
-	min-height: 700px;
+  min-height: 700px;
 
-	@media (min-width: 768px) {
-		height: 900px;
-	}
+  @media (min-width: 768px) {
+    height: 900px;
+  }
 }
 
 .container-app {
-	max-width: 1440px;
-	margin: 0 auto;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .container {
-	margin: 0 2.4rem;
+  margin: 0 2.4rem;
 }
 
 footer {
-	opacity: 0;
+  opacity: 0;
 }
