@@ -1,4 +1,4 @@
-# Frontend Mentor - Multi-step form solution
+# Frontend Mentor - DevLinks app
 
 ## Overview
 
