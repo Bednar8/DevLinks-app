@@ -1,20 +1,20 @@
 {
-	"name": "devlinks-app",
-	"version": "1.0.0",
-	"description": "![Design preview for the Link-sharing app coding challenge](./preview.jpg)",
-	"browserslist": "> 0.5%, last 2 versions, not dead",
-	"scripts": {
-		"start": "parcel index.html",
-		"build": "parcel build index.html --dist-dir ./dist"
-	},
-	"author": "Bednar",
-	"license": "ISC",
-	"devDependencies": {
-		"@parcel/transformer-sass": "^2.11.0",
-		"parcel": "^2.11.0"
-	},
-	"dependencies": {
-		"core-js": "^3.35.1",
-		"regenerator-runtime": "^0.14.1"
-	}
+  "name": "devlinks-app",
+  "version": "1.0.0",
+  "description": "![Design preview for the Link-sharing app coding challenge](./preview.jpg)",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Bednar",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "core-js": "^3.35.1",
+    "regenerator-runtime": "^0.14.1"
+  }
 }
