@@ -14,7 +14,7 @@ In this challenge, the user can add, edit, and delete links that are automatical
 
 ### Links
 
-- Live Site URL: [Dev links app](https://multi-step-form-bednar.netlify.app/)
+- Live Site URL: [Dev links app](https://dev-links-bednar.netlify.app/)
 
 ### Built with
 
